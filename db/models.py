@@ -19,7 +19,7 @@ class Guild(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    bonus = models.IntegerField(default=0)
+    bonus = models.TextField(blank=True, default="")
     race = models.ForeignKey(
         Race,
         on_delete=models.CASCADE,
@@ -27,7 +27,7 @@ class Skill(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"{self.name} (+{self.bonus})"
+        return f"{self.name} ({self.bonus})"
 
 
 class Player(models.Model):
