@@ -11,7 +11,7 @@ def main() -> None:
     with open(json_path, "r", encoding="utf-8") as f:
         players_data = json.load(f)
 
-    for player_key, pdata in players_data.items():  # беремо ключ і значення
+    for player_key, pdata in players_data.items():
         nickname = player_key  # ключ словника використаємо як nickname
 
         # --- Race ---
@@ -47,7 +47,7 @@ def main() -> None:
             Skill.objects.get_or_create(
                 name=sdata.get("name", ""),
                 race=race,
-                defaults={"bonus": sdata.get("bonus", "")}
+                defaults={"bonus": sdata.get("bonus", 0)}
             )
 
 
